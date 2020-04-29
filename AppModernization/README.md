@@ -47,8 +47,8 @@
       ![](images/am6.png)
       
 2. Use exisiting hands-on-lab-SUFFIX resource group and for:
-   - **storage account**: Create new and enter sa<deploymentid>, for example: sa176667.
-   - **file share**: Create new and enter fs<deploymentid>, for example: fs176667.
+   - **storage account**: Create new and enter sa<uniqueid>, for example: sa176667.
+   - **file share**: Create new and enter fs<uniqueid>, for example: fs176667.
       
      ![](images/am7.png)
      
@@ -74,4 +74,49 @@
  
    ![](images/am9.png)
 
+## Exercise 3: Configure Key Vault
+
+### Task 1: Add Key Vault access policy
+
+**Step 3.** In the Add access policy dialog, enter the following:
+   - **Select Principal:** Copy the **display name** of your service principal that is given on the lab details page, then paste it in the **Select** block and select when it appears from the list. Then click on **Save**.
+   
+      ![](images/am10.png)
+
+   - It will look similar to the one shown below, then click on **Add** to add the access policy:
+   
+      ![](images/am11.png)
+
+## Exercise 3: Configure Key Vault
+
+### Task 3: Create a service principal
+
+**Step 6.** Here a pre-created **Service Principal** is provided so you need not to perform this step.
+
+**Step 7.** The details of the pre-created **Service Principal** are provided on lab details page.
+
+  ![](images/am12.png)
+
+### Task 4: Assign the service principal access to Key Vault
+
+1. Before proceeding to the **Step 1** of this task, enter the following command at the Cloud Shell prompt, by replacing `<your-subscription-id>` with the value you copied above and `<your-resource-group-name>` with the name of your **hands-on-lab-SUFFIX** resource group, and then press **Enter** to run the command:
+
+```
+$subscriptionId = "<your-subscription-id>"
+$resourceGroup = "<your-resource-group-name>"
+```
+After this you can start from **Step 1** of this task.
+
+**Step 3.** To assign permissions to your service principal to read Secrets from Key Vault, run the following command, replacing `<your-key-vault-name>` with the name of your Key Vault that you copied in the previous step and pasted into a text editor and replacing **http://contoso-apps** in --spn with the **application id** of the pre-created service principal that you can copy from lab details page.
+
+    ```
+    az keyvault set-policy -n <your-key-vault-name> --spn http://contoso-apps --secret-permissions get list
+    ```
+ 
+ After replacing both the values the command will look similar to one shown below:
+ 
+    ```
+    az keyvault set-policy -n <your-key-vault-name> --spn 43c4ce7d-ff70-4e08-b438-b80897b0b9c7 --secret-permissions get list
+    ```
+ 
 
