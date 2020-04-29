@@ -56,9 +56,9 @@
  
 **Step 6.** Next, retrieve the public IP address of the SqlServer2008 VM to connect to the database on that server using the following PowerShell command:
 
-    ```
+    
     az vm list-ip-addresses -g $resourceGroup -n SqlServer2008 --output table
-    ```
+    
     
 - Replace SqlServer2008 with name of your SQLVM. It will look similar to the one as following:
 
@@ -74,6 +74,10 @@
  
    ![](images/am9.png)
 
+**Step 13.** Validation option: After some updates this option is not more present in the portal. So after providing the **Activity name** click on **Run Migration**.
+
+      ![](images/am13.png)
+
 ## Exercise 3: Configure Key Vault
 
 ### Task 1: Add Key Vault access policy
@@ -86,8 +90,6 @@
    - It will look similar to the one shown below, then click on **Add** to add the access policy:
    
       ![](images/am11.png)
-
-## Exercise 3: Configure Key Vault
 
 ### Task 3: Create a service principal
 
@@ -109,22 +111,18 @@ After this you can start from **Step 1** of this task.
 
 **Step 3.** To assign permissions to your service principal to read Secrets from Key Vault, run the following command, replacing `<your-key-vault-name>` with the name of your Key Vault that you copied in the previous step and pasted into a text editor and replacing **http://contoso-apps** in --spn with the **application id** of the pre-created service principal that you can copy from lab details page.
 
-    ```
+    
     az keyvault set-policy -n <your-key-vault-name> --spn http://contoso-apps --secret-permissions get list
-    ```
+    
  
  After replacing both the values the command will look similar to one shown below:
  
-    ```
     az keyvault set-policy -n <your-key-vault-name> --spn 43c4ce7d-ff70-4e08-b438-b80897b0b9c7 --secret-permissions get list
-    ```
  
 ## Exercise 4: Deploy Web API into Azure App Services
 
 ### Task 4: Copy KeyVault configuration section to API App in Azure
 
 **Step 4.** You copy and paste the below mentioned values from the lab deyails page as shown in previous steps:
- - <your-service-principal-application-id> : Replace this with the `appId` value you received as output when you created the service principal.
- - <your-service-principal-password> : Replace this with the `password` value you received as output when you created the service principal.
-
-   
+ - **your-service-principal-application-id**
+ - **your-service-principal-password**
