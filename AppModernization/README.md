@@ -56,13 +56,13 @@
  
 **Step 6.** Next, retrieve the public IP address of the SqlServer2008 VM to connect to the database on that server using the following PowerShell command:
 
-    ```powershell
+    ```
     az vm list-ip-addresses -g $resourceGroup -n SqlServer2008 --output table
     ```
 - Replace SqlServer2008 with name of your SQLVM. It will look similar to the one as following:
 
-    ```powershell
+    ```
     az vm list-ip-addresses -g $resourceGroup -n Sql2008-176667 --output table
     ```
     
-        ![](images/am8.png) 
+   ![](images/am8.png) 
