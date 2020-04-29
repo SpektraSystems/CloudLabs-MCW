@@ -84,7 +84,7 @@
 
 **Step 3.** In the Add access policy dialog, enter the following:
    - **Select Principal:** Copy the **display name** of your service principal that is given on the lab details page, then paste it in the **Select** block and select when it appears from the list. Then click on **Save**.
-   
+ 
       ![](images/am10.png)
 
    - It will look similar to the one shown below, then click on **Add** to add the access policy:
