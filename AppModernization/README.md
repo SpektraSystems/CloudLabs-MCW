@@ -59,6 +59,7 @@
     ```
     az vm list-ip-addresses -g $resourceGroup -n SqlServer2008 --output table
     ```
+    
 - Replace SqlServer2008 with name of your SQLVM. It will look similar to the one as following:
 
     ```
@@ -66,3 +67,11 @@
     ```
     
    ![](images/am8.png) 
+   
+### Task 5: Migrate the database using the Azure Database Migration Service
+
+**Step 5.** On the **Migration Wizard Select source**blade, before saving check **TLS 1.2 security protocol** and then **Save**.
+ 
+   ![](images/am9.png)
+
+
