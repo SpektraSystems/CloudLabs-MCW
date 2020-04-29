@@ -119,4 +119,12 @@ After this you can start from **Step 1** of this task.
     az keyvault set-policy -n <your-key-vault-name> --spn 43c4ce7d-ff70-4e08-b438-b80897b0b9c7 --secret-permissions get list
     ```
  
+## Exercise 4: Deploy Web API into Azure App Services
 
+### Task 4: Copy KeyVault configuration section to API App in Azure
+
+**Step 4.** You copy and paste the below mentioned values from the lab deyails page as shown in previous steps:
+ - <your-service-principal-application-id> : Replace this with the `appId` value you received as output when you created the service principal.
+ - <your-service-principal-password> : Replace this with the `password` value you received as output when you created the service principal.
+
+   
