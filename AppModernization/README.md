@@ -4,11 +4,11 @@
 
 ### Task 1: Configure the ContosoInsurance database on the SqlServer2008 VM
 
-**Step 1.** In the **Azure portal**, navigate to your **SqlServer2008 VM** by selecting **Resource groups** from Azure services list, selecting the hands-on-lab-SUFFIX resource group, and selecting the **Sql2008-176667 VM** from the list of resources.
+**Step 1.** In the **Azure portal**, navigate to your **SqlServer2008 VM** by selecting **Resource groups** from Azure services list, selecting the hands-on-lab-SUFFIX resource group, and selecting the **Sql2008-uniqueid VM** from the list of resources.
 
    ![](images/am1.png)
 
-**Step 8.** In the SSMS **Connect to Server** dialog, enter **Sql2008-176667** into the Server name box, ensure **Windows Authentication** is selected, and then select **Connect**.
+**Step 8.** In the SSMS **Connect to Server** dialog, enter **Sql2008-uniqueid** into the Server name box, ensure **Windows Authentication** is selected, and then select **Connect**.
 
    ![](images/am2.png)
 
@@ -16,7 +16,7 @@
 
 **Step 6.** On the **Sources** screen, enter the following into the **Connect to a server** dialog that appears on the right-hand side:
 
-   - **Server name**: Enter **Sql2008-176667**.
+   - **Server name**: Enter **Sql2008-uniqueid**.
    - **Authentication type**: Select **SQL Server Authentication**.
    - **Username**: Enter **WorkshopUser**
    - **Password**: Enter **Password.1!!**
@@ -29,7 +29,7 @@
  
  **Step 4.** On the **Select source** tab, enter the following:
 
-   - **Server name**: Enter **Sql2008-176667**.
+   - **Server name**: Enter **Sql2008-uniqueid**.
    - **Authentication type**: Select **SQL Server Authentication**.
    - **Username**: Enter **WorkshopUser**
    - **Password**: Enter **Password.1!!**
@@ -44,11 +44,11 @@
 **Step 3 - Note:** If creation fails, you may need to select Advanced settings and specify the subscription, region and resource group for the new storage account as mentioned below:
 1. Click on **Show Advanced Settings**.
 
-      ![](images/am6.png)
+      ![](images/am14.png)
       
 2. Use exisiting hands-on-lab-SUFFIX resource group and for:
-   - **storage account**: Create new and enter sa<uniqueid>, for example: sa176667.
-   - **file share**: Create new and enter fs<uniqueid>, for example: fs176667.
+   - **storage account**: Create new and enter sa-uniqueid, for example: sa176667.
+   - **file share**: Create new and enter fs-uniqueid, for example: fs176667.
       
      ![](images/am7.png)
      
@@ -76,7 +76,7 @@
 
 **Step 13.** Validation option: After some updates this option is not more present in the portal. So after providing the **Activity name** click on **Run Migration**.
 
-      ![](images/am13.png)
+   ![](images/am13.png)
 
 ## Exercise 3: Configure Key Vault
 
@@ -111,18 +111,16 @@ After this you can start from **Step 1** of this task.
 
 **Step 3.** To assign permissions to your service principal to read Secrets from Key Vault, run the following command, replacing `<your-key-vault-name>` with the name of your Key Vault that you copied in the previous step and pasted into a text editor and replacing **http://contoso-apps** in --spn with the **application id** of the pre-created service principal that you can copy from lab details page.
 
-    
     az keyvault set-policy -n <your-key-vault-name> --spn http://contoso-apps --secret-permissions get list
     
- 
  After replacing both the values the command will look similar to one shown below:
  
-    az keyvault set-policy -n <your-key-vault-name> --spn 43c4ce7d-ff70-4e08-b438-b80897b0b9c7 --secret-permissions get list
+    az keyvault set-policy -n contoso-kv-uniqueid --spn 43c4ce7d-ff70-4e08-b438-b80897b0b9c7 --secret-permissions get list
  
 ## Exercise 4: Deploy Web API into Azure App Services
 
 ### Task 4: Copy KeyVault configuration section to API App in Azure
 
-**Step 4.** You copy and paste the below mentioned values from the lab deyails page as shown in previous steps:
+**Step 4.** You can copy and paste the below mentioned values from the lab details page as shown in previous steps:
  - **your-service-principal-application-id**
  - **your-service-principal-password**
