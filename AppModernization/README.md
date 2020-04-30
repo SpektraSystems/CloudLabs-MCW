@@ -89,7 +89,7 @@
 
    - It will look similar to the one shown below, then click on **Add** to add the access policy:
    
-      ![](images/am11.png)
+      ![](images/am15.png)
 
 ### Task 3: Create a service principal
 
